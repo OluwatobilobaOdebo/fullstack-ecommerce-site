@@ -13,8 +13,13 @@ app = FastAPI(title="Portfolio E-commerce API")
 
 # CORS – allow frontend (Next.js dev) to call the API
 origins = [
+    # local dev
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://localhost:3000",
+
+    # deployed frontend on Vercel
+    "https://fullstack-ecommerce-site-tawny.vercel.app",
 ]
 
 app.add_middleware(
