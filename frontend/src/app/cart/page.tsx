@@ -157,7 +157,7 @@ export default function CartPage() {
                 <span>${total.toFixed(2)}</span>
               </div>
               <p className="text-xs text-gray-500 mb-4">
-                This is a portfolio demo — no real payments are processed.
+                No real payments are processed.
               </p>
 
               <div className="mb-3">

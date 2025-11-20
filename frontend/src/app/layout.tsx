@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Full-Stack E-Commerce Demo",
+  title: "Tobi's Full-Stack E-Commerce Site",
   description: "Portfolio project – FastAPI backend + Next.js frontend.",
 };
 
@@ -17,7 +17,7 @@ export default function RootLayout({
         <header className="border-b bg-white">
           <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
             <a href="/" className="font-semibold">
-              Full-Stack E-Commerce
+              Tobi's Full-Stack E-Commerce Site
             </a>
             <nav className="flex items-center gap-4 text-sm">
               <a href="/" className="hover:underline">
@@ -34,8 +34,8 @@ export default function RootLayout({
 
         <footer className="border-t mt-8">
           <div className="max-w-5xl mx-auto px-4 py-4 text-xs text-gray-500">
-            Portfolio demo – FastAPI + PostgreSQL + Next.js. No real payments
-            are processed.
+            Built with FastAPI + PostgreSQL + Next.js. No real payments are
+            processed.
           </div>
         </footer>
       </body>

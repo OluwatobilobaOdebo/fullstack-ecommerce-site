@@ -31,7 +31,7 @@ export default async function HomePage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 py-10">
-        <h1 className="text-3xl font-bold mb-6">Full-Stack E-Commerce Demo</h1>
+        <h1 className="text-3xl font-bold mb-6">Select Any Item</h1>
         <a
           href="/cart"
           className="inline-flex items-center text-sm text-blue-600 mb-4"
