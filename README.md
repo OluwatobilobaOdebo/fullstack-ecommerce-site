@@ -1,4 +1,4 @@
-# Full-Stack E-Commerce Demo
+# Full-Stack E-Commerce Site
 
 A full-stack e-commerce application built with **Next.js**, **FastAPI**, and **PostgreSQL (Neon)**.
 
