@@ -1,4 +1,4 @@
-# Full-Stack E-Commerce Site
+# Full-Stack E-Commerce Site (Curated)
 
 A full-stack e-commerce application built with **Next.js**, **FastAPI**, and **PostgreSQL (Neon)**.
 
