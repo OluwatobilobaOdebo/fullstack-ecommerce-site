@@ -71,9 +71,7 @@ export default async function HomePage({
   const selectedCategory = params.category?.toLowerCase();
 
   const filteredProducts = selectedCategory
-    ? products.filter(
-        (p) => p.category?.toLowerCase() === selectedCategory
-      )
+    ? products.filter((p) => p.category?.toLowerCase() === selectedCategory)
     : products;
 
   return (
@@ -83,11 +81,11 @@ export default async function HomePage({
         {/* Background Pattern */}
         <div className="absolute inset-0 pattern-dots opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--color-cream)]" />
-        
+
         {/* Decorative Elements */}
         <div className="absolute top-20 right-[10%] w-72 h-72 rounded-full bg-[var(--color-terracotta)]/5 blur-3xl" />
         <div className="absolute bottom-20 left-[5%] w-96 h-96 rounded-full bg-[var(--color-sage)]/10 blur-3xl" />
-        
+
         <div className="relative max-w-7xl mx-auto px-6 py-20 w-full">
           <div className="max-w-3xl">
             <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl font-semibold text-[var(--color-espresso)] mb-6 animate-fade-in-up">
@@ -95,25 +93,41 @@ export default async function HomePage({
               <br />
               <span className="gradient-text">Modern Living</span>
             </h1>
-            
+
             <p className="text-lg md:text-xl text-[var(--color-espresso-light)]/70 max-w-xl mb-8 leading-relaxed animate-fade-in-up stagger-2">
-              Discover a thoughtfully selected collection of premium goods. 
+              Discover a thoughtfully selected collection of premium goods.
               Quality craftsmanship meets timeless design.
             </p>
-            
+
             <div className="flex flex-wrap gap-4 animate-fade-in-up stagger-3">
-              <a href="#products" className="btn-primary inline-flex items-center gap-2">
+              <a
+                href="#products"
+                className="btn-primary inline-flex items-center gap-2"
+              >
                 Shop Collection
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </a>
-              <a href="#categories" className="btn-secondary inline-flex items-center gap-2">
+              <a
+                href="#categories"
+                className="btn-secondary inline-flex items-center gap-2"
+              >
                 Browse Categories
               </a>
             </div>
           </div>
-          
+
           {/* Stats */}
           <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg animate-fade-in-up stagger-4">
             <div>
@@ -126,7 +140,9 @@ export default async function HomePage({
               <div className="text-3xl font-[family-name:var(--font-display)] font-semibold text-[var(--color-terracotta)]">
                 5
               </div>
-              <div className="text-sm text-[var(--color-stone)]">Categories</div>
+              <div className="text-sm text-[var(--color-stone)]">
+                Categories
+              </div>
             </div>
             <div>
               <div className="text-3xl font-[family-name:var(--font-display)] font-semibold text-[var(--color-terracotta)]">
@@ -149,7 +165,7 @@ export default async function HomePage({
               Find exactly what you're looking for in our curated collections
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {categories.map((cat, index) => (
               <a
@@ -162,11 +178,23 @@ export default async function HomePage({
                 <h3 className="font-semibold text-[var(--color-espresso)] mb-1 group-hover:text-[var(--color-terracotta)] transition-colors">
                   {cat.name}
                 </h3>
-                <p className="text-xs text-[var(--color-stone)]">{cat.description}</p>
-                
+                <p className="text-xs text-[var(--color-stone)]">
+                  {cat.description}
+                </p>
+
                 <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <svg className="w-4 h-4 text-[var(--color-espresso)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg
+                    className="w-4 h-4 text-[var(--color-espresso)]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </div>
               </a>
@@ -183,21 +211,35 @@ export default async function HomePage({
             <div>
               <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-semibold text-[var(--color-espresso)] mb-2">
                 {selectedCategory
-                  ? `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}`
+                  ? `${
+                      selectedCategory.charAt(0).toUpperCase() +
+                      selectedCategory.slice(1)
+                    }`
                   : "All Products"}
               </h2>
               <p className="text-[var(--color-stone)]">
-                {filteredProducts.length} {filteredProducts.length === 1 ? "item" : "items"} available
+                {filteredProducts.length}{" "}
+                {filteredProducts.length === 1 ? "item" : "items"} available
               </p>
             </div>
-            
+
             {selectedCategory && (
               <a
                 href="/"
                 className="inline-flex items-center gap-2 text-sm text-[var(--color-terracotta)] hover:text-[var(--color-terracotta-dark)] transition-colors font-medium"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
                 Clear filter
               </a>
@@ -206,18 +248,40 @@ export default async function HomePage({
 
           {filteredProducts.length === 0 ? (
             <div className="text-center py-20">
-              <div className="text-6xl mb-4">🔍</div>
+              <div className="text-6xl mb-4">
+                {selectedCategory ? "🔍" : "☕"}
+              </div>
               <h3 className="text-xl font-semibold text-[var(--color-espresso)] mb-2">
-                No products found
+                {selectedCategory ? "No products found" : "Just a moment..."}
               </h3>
-              <p className="text-[var(--color-stone)] mb-6">
+              <p className="text-[var(--color-stone)] mb-6 max-w-md mx-auto">
                 {selectedCategory
                   ? `We couldn't find any products in the "${selectedCategory}" category.`
-                  : "Check that your backend is running and seeded."}
+                  : "Our store is waking up! This can take up to 30 seconds on the first visit. Please refresh the page in a moment."}
               </p>
-              {selectedCategory && (
+              {selectedCategory ? (
                 <a href="/" className="btn-primary">
                   View All Products
+                </a>
+              ) : (
+                <a
+                  href="/"
+                  className="btn-primary inline-flex items-center gap-2"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                    />
+                  </svg>
+                  Refresh Page
                 </a>
               )}
             </div>
@@ -236,15 +300,16 @@ export default async function HomePage({
         {/* Decorative */}
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[var(--color-terracotta)]/10 blur-3xl translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-[var(--color-sage)]/10 blur-3xl -translate-x-1/2 translate-y-1/2" />
-        
+
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-semibold text-white mb-4">
             Stay in the Loop
           </h2>
           <p className="text-white/70 max-w-md mx-auto mb-8">
-            Be the first to know about new arrivals, exclusive offers, and curated collections.
+            Be the first to know about new arrivals, exclusive offers, and
+            curated collections.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input
               type="email"
@@ -258,7 +323,7 @@ export default async function HomePage({
               Subscribe
             </button>
           </div>
-          
+
           <p className="text-white/40 text-sm mt-4">
             No spam, unsubscribe anytime.
           </p>
@@ -273,7 +338,11 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
     <a
       href={`/p/${product.slug}`}
       className="product-card group bg-[var(--color-cream)] rounded-2xl overflow-hidden border border-[var(--border)] animate-fade-in-up"
-      style={{ animationDelay: `${index * 0.1}s`, opacity: 0, animationFillMode: 'forwards' }}
+      style={{
+        animationDelay: `${index * 0.1}s`,
+        opacity: 0,
+        animationFillMode: "forwards",
+      }}
     >
       {/* Image Container */}
       <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-cream-dark)]">
@@ -288,21 +357,21 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             📦
           </div>
         )}
-        
+
         {/* Quick View Overlay */}
         <div className="absolute inset-0 bg-[var(--color-espresso)]/0 group-hover:bg-[var(--color-espresso)]/20 transition-colors duration-300 flex items-center justify-center">
           <span className="px-4 py-2 bg-white rounded-full text-sm font-medium text-[var(--color-espresso)] opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
             View Details
           </span>
         </div>
-        
+
         {/* Stock Badge */}
         {!product.in_stock && (
           <div className="absolute top-3 left-3 px-3 py-1 bg-[var(--color-espresso)]/80 text-white text-xs font-medium rounded-full">
             Out of Stock
           </div>
         )}
-        
+
         {/* Category Badge */}
         {product.category && (
           <div className="absolute top-3 right-3 px-3 py-1 bg-white/90 backdrop-blur-sm text-[var(--color-espresso)] text-xs font-medium rounded-full">
@@ -310,24 +379,24 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           </div>
         )}
       </div>
-      
+
       {/* Content */}
       <div className="p-5">
         <h3 className="font-semibold text-[var(--color-espresso)] mb-1 group-hover:text-[var(--color-terracotta)] transition-colors">
           {product.name}
         </h3>
-        
+
         {product.description && (
           <p className="text-sm text-[var(--color-stone)] line-clamp-2 mb-3">
             {product.description}
           </p>
         )}
-        
+
         <div className="flex items-center justify-between">
           <span className="text-lg font-semibold text-[var(--color-espresso)]">
             ${product.price.toFixed(2)}
           </span>
-          
+
           <div className="w-8 h-8 rounded-full bg-[var(--color-terracotta)]/10 flex items-center justify-center group-hover:bg-[var(--color-terracotta)] transition-colors">
             <svg
               className="w-4 h-4 text-[var(--color-terracotta)] group-hover:text-white transition-colors"
