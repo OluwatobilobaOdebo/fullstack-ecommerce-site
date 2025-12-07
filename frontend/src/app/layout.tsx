@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Navigation } from "@/components/Navigation";
 
 export const metadata: Metadata = {
-  title: "Tobi's Full-Stack E-Commerce Site",
-  description: "Portfolio project – FastAPI backend + Next.js frontend.",
+  title: "Curated — Premium Lifestyle Goods",
+  description: "Discover thoughtfully curated products for modern living. Quality craftsmanship meets timeless design.",
 };
 
 export default function RootLayout({
@@ -13,32 +14,144 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 text-gray-900">
-        <header className="border-b bg-white">
-          <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="/" className="font-semibold">
-              Tobi's Full-Stack E-Commerce Site
-            </a>
-            <nav className="flex items-center gap-4 text-sm">
-              <a href="/" className="hover:underline">
-                Home
-              </a>
-              <a href="/cart" className="hover:underline">
-                Cart
-              </a>
-            </nav>
-          </div>
-        </header>
-
-        <main>{children}</main>
-
-        <footer className="border-t mt-8">
-          <div className="max-w-5xl mx-auto px-4 py-4 text-xs text-gray-500">
-            Built with FastAPI + PostgreSQL + Next.js. No real payments are
-            processed.
-          </div>
-        </footer>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>
+        <Navigation />
+        <main className="pt-[var(--nav-height)]">{children}</main>
+        <Footer />
       </body>
     </html>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="bg-[var(--color-espresso)] text-white">
+      {/* Decorative top border */}
+      <div className="h-1 bg-gradient-to-r from-[var(--color-terracotta)] via-[var(--color-gold)] to-[var(--color-sage)]" />
+      
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          {/* Brand */}
+          <div className="md:col-span-2">
+            <h3 className="font-[family-name:var(--font-display)] text-2xl mb-4">
+              Curated
+            </h3>
+            <p className="text-white/70 max-w-md leading-relaxed mb-6">
+              Thoughtfully curated products for the modern lifestyle. 
+              We believe in quality over quantity, and craftsmanship that stands the test of time.
+            </p>
+            <div className="flex gap-4">
+              <a 
+                href="#" 
+                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
+                aria-label="Instagram"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <a 
+                href="#" 
+                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
+                aria-label="Twitter"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a 
+                href="#" 
+                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
+                aria-label="Pinterest"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-semibold mb-4 text-white/90">Shop</h4>
+            <ul className="space-y-3">
+              <li>
+                <a href="/" className="text-white/60 hover:text-white transition-colors">
+                  All Products
+                </a>
+              </li>
+              <li>
+                <a href="/?category=apparel" className="text-white/60 hover:text-white transition-colors">
+                  Apparel
+                </a>
+              </li>
+              <li>
+                <a href="/?category=accessories" className="text-white/60 hover:text-white transition-colors">
+                  Accessories
+                </a>
+              </li>
+              <li>
+                <a href="/?category=decor" className="text-white/60 hover:text-white transition-colors">
+                  Decor
+                </a>
+              </li>
+              <li>
+                <a href="/?category=gear" className="text-white/60 hover:text-white transition-colors">
+                  Gear
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          {/* Support */}
+          <div>
+            <h4 className="font-semibold mb-4 text-white/90">Support</h4>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="text-white/60 hover:text-white transition-colors">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/60 hover:text-white transition-colors">
+                  Shipping Info
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/60 hover:text-white transition-colors">
+                  Returns
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/60 hover:text-white transition-colors">
+                  FAQ
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        {/* Bottom bar */}
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-white/50 text-sm">
+            © 2025 Curated. All rights reserved.
+          </p>
+          <p className="text-white/50 text-sm">
+            by <span className="text-white/70 font-medium">Oluwatobiloba Odebo</span>
+          </p>
+          <p className="text-white/40 text-xs">
+            Built with FastAPI + PostgreSQL + Next.js • No real payments processed
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 }
